@@ -1,7 +1,34 @@
 window.G_Game = {
 
-	gameInit (){
+	_stockType : {
+		normal : 1,
+		pause : 2,
+	},
 
+	_stockObj : {
+        stockId : 0,
+		nowPrice : 0,
+		priceHistory : null,
+        type : 0,
+	},
+
+	//-----------game data -----------
+	stockList : null,
+	gameInit (){
+        this.stockList = {};
+        this.stockInit();
+	},
+
+	stockInit (){
+		for(let i in G_Stock){
+            let obj = Object.create(this._stockObj);
+            let data = G_Stock[i];
+            obj.stockId = data.id;
+            obj.nowPrice = data.basePrice;
+            obj.priceHistory = {};
+            obj.type = this._stockType.normal;
+            this.stockList[obj.stockId] = obj;
+		}
 	},
 
 	//时间流逝
