@@ -13,6 +13,18 @@ window.G_Game = {
 	},
 
 	//-----------game data -----------
+
+	//----------- get --------------
+
+    getUserName (){
+
+    },
+
+    getNowTimeStr (){
+
+    },
+
+    //----------- game contorl --------------
 	stockList : null,
 	gameInit (){
         this.stockList = {};

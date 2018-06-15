@@ -2,6 +2,8 @@ window.G_User = {
     userBaseName : "",
     
     money : 0,//钱
+
+    yeahpay : 0,//余额宝
     //经过的时间
     passMonths : 0,
     //第几代

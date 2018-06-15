@@ -38,10 +38,13 @@
     "_components": [
       {
         "__id__": 28
+      },
+      {
+        "__id__": 29
       }
     ],
     "_prefab": {
-      "__id__": 29
+      "__id__": 30
     },
     "_id": "",
     "_opacity": 255,
@@ -181,7 +184,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f7726040-fda8-4f8b-8efc-ba2ce8a831dc"
     },
     "fileId": "43hOfrjTREK7jarJ+i6KXS",
     "sync": false
@@ -288,7 +291,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f7726040-fda8-4f8b-8efc-ba2ce8a831dc"
     },
     "fileId": "eb9M6iwA1MJ5M9U18vRR4A",
     "sync": false
@@ -395,14 +398,14 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f7726040-fda8-4f8b-8efc-ba2ce8a831dc"
     },
     "fileId": "fdEl6AWaVIIJcBFeWYRXV1",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "buyAndSell",
+    "_name": "buyAndSellBtn",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -545,7 +548,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f7726040-fda8-4f8b-8efc-ba2ce8a831dc"
     },
     "fileId": "20MfCFy+tFrKuySCXC7ADE",
     "sync": false
@@ -646,7 +649,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f7726040-fda8-4f8b-8efc-ba2ce8a831dc"
     },
     "fileId": "9d5fb87aNId7f4G+Z7CfSR",
     "sync": false
@@ -753,7 +756,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f7726040-fda8-4f8b-8efc-ba2ce8a831dc"
     },
     "fileId": "dfgpVCeI9DEYgXVZOUAr3i",
     "sync": false
@@ -844,9 +847,9 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f7726040-fda8-4f8b-8efc-ba2ce8a831dc"
     },
-    "fileId": "99ErxhyfJK+IEY6/Lw7D+d",
+    "fileId": "85O8Cb0J9OspgNG/hsGiTq",
     "sync": false
   },
   {
@@ -876,12 +879,39 @@
     "_atlas": null
   },
   {
+    "__type__": "48826B9podDSamr3zQLxcaT",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "nameLabel": {
+      "__id__": 3
+    },
+    "valueLabel": {
+      "__id__": 7
+    },
+    "percentLabel": {
+      "__id__": 11
+    },
+    "gotLabel": {
+      "__id__": 22
+    },
+    "buyAndSell": {
+      "__id__": 19
+    },
+    "iconSprite": {
+      "__id__": 26
+    }
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f7726040-fda8-4f8b-8efc-ba2ce8a831dc"
     },
     "fileId": "a91spubCZAsrt3teEMjXMw",
     "sync": false
