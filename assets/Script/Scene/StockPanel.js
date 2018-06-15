@@ -52,15 +52,23 @@ cc.Class({
 
     },
 
-    setStockId (id){
-        this.stockId = id;
+    setStockId (stockId){
+        this.stockId = stockId;
         this.reload();
     },
 
     reload (){
         let data = G_Game.stockList[this.stockId];
         let baseData = G_Stock[this.stockId];
-         
+
+        this.nameLabel = baseData.name;
+        this.valueLabel = data.nowPrice;
+        this.percentLabel = data.priceHistory[data.priceHistory.length - 1];
+        this.gotLabel = data.isGotNum + "股";
+    },
+
+    onClickTrade (){
+        G_EventManager.pushEvent(G_Event.onClickTradeStock,[this.stockId]);
     },
 
     // update (dt) {},

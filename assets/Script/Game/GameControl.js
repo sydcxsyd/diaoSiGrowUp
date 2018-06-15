@@ -10,6 +10,7 @@ window.G_Game = {
 		nowPrice : 0,
 		priceHistory : null,
         type : 0,
+		isGotNum : 0,
 	},
 
 	//-----------game data -----------
