@@ -12,19 +12,19 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        nameLabel : {
+        closeBtn : {
             default : null,
-            type : cc.Label,
+            type : cc.Button,
         },
 
-        valueLabel : {
+        buyBtn : {
             default : null,
-            type : cc.Label,
+            type : cc.Button,
         },
 
-        percentLabel : {
+        sellBtn : {
             default : null,
-            type : cc.Label,
+            type : cc.Button,
         },
 
         gotLabel : {
@@ -32,20 +32,26 @@ cc.Class({
             type : cc.Label,
         },
 
-        buyAndSell : {
+        gotCostLabel : {
             default : null,
-            type : cc.Button,
+            type : cc.Label,
         },
 
-        iconSprite : {
+        sellPriceLabel : {
             default : null,
-            type : cc.Sprite,
+            type : cc.Label,
+        },
+
+        sellGotLabel : {
+            default : null,
+            type : cc.Label,
         },
 
         stockId : {
             default : 0,
             visible : false,
         },
+
     },
 
     start () {
@@ -58,18 +64,6 @@ cc.Class({
     },
 
     reload (){
-        let data = G_Game.stockList[this.stockId];
-        let baseData = G_Stock[this.stockId];
 
-        this.nameLabel = baseData.name;
-        this.valueLabel = data.nowPrice;
-        this.percentLabel = data.priceHistory[data.priceHistory.length - 1];
-        this.gotLabel = data.isGotNum + "股";
     },
-
-    onClickTrade (){
-        G_EventManager.pushEvent(G_Event.onClickTradeStock,[this.stockId]);
-    },
-
-    // update (dt) {},
 });

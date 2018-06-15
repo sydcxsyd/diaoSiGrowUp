@@ -21,6 +21,11 @@ cc.Class({
             default : null,
             type : cc.Prefab,
         },
+
+        stockTradePre : {
+            default : null,
+            type : cc.Prefab,
+        },
     },
 
     onLoad () {
@@ -54,7 +59,7 @@ cc.Class({
     reloadStock (){
         let listContent = cc.find("buyScrollList/view/content");
         listContent.removeAllChildren();
-        for(let i = 0 ; i < listContent.stockList.length ; i ++){
+        for(let i in G_Game.stockList){
             let packageNode = cc.instantiate(this.stockPre);
             packageNode.parent = listContent;
         }
@@ -63,9 +68,10 @@ cc.Class({
 
     reloadStockData (){
         let listContent = cc.find("buyScrollList/view/content");
-        for(let i = 0 ; i < listContent.stockList.length ; i ++){
+        let index = 0;
+        for(let i in G_Game.stockList){
             let stockId = G_Game.stockList[i].stockId;
-            let packageNode = listContent.children[i];
+            let packageNode = listContent.children[index];
             packageNode.setStockId(stockId)
         }
     },
