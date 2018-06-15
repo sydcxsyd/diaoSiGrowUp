@@ -27,6 +27,11 @@ cc.Class({
             type : cc.Button,
         },
 
+        stockName : {
+            default : null,
+            type : cc.Label,
+        },
+
         gotLabel : {
             default : null,
             type : cc.Label,
@@ -64,6 +69,25 @@ cc.Class({
     },
 
     reload (){
+        let data = G_User.stockList[this.stockId];
+        let baseData = G_Stock[this.stockId];
+
+        this.stockName.string = "持有:" + baseData.name + "股";
+        this.gotLabel.string = "持有:" + data.gotNum + "股";
+        this.gotCostLabel.string = "成本:" + data.gotCost + "元";
+        this.sellPriceLabel.string = "现价:" + data.nowPrice + "元";
+        this.sellGotLabel.string = "市值:" + (data.nowPrice * data.gotNum) + "元";
+    },
+
+    clickClose (){
+        this.node.destroy();
+    },
+
+    clickBuyBtn (){
+
+    },
+
+    clickSellBtn (){
 
     },
 });

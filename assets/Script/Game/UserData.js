@@ -13,5 +13,5 @@ window.G_User = {
         happy : 0,//幸福感
     },
 
-
+    stockList : null,//股票列表
 };

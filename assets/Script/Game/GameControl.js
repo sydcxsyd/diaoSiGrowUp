@@ -10,7 +10,9 @@ window.G_Game = {
 		nowPrice : 0,
 		priceHistory : null,
         type : 0,
-		isGotNum : 0,
+
+		gotNum : 0,
+        gotCost : 0,
 	},
 
 	//-----------game data -----------
@@ -26,9 +28,8 @@ window.G_Game = {
     },
 
     //----------- game contorl --------------
-	stockList : null,
 	gameInit (){
-        this.stockList = {};
+        G_User.stockList = {};
         this.stockInit();
 	},
 
@@ -40,7 +41,7 @@ window.G_Game = {
             obj.nowPrice = data.basePrice;
             obj.priceHistory = {};
             obj.type = this._stockType.normal;
-            this.stockList[obj.stockId] = obj;
+            G_User.stockList[obj.stockId] = obj;
 		}
 	},
 
