@@ -24,13 +24,33 @@ window.G_Game = {
     },
 
     getNowTimeStr (){
-
+        let year = parseInt(G_User.passMonths/12);
+        let month = G_User.passMonths%12;
+        let reStr = "第" + year + "年" + month + "月";
+		return reStr
     },
+
+    getStockChangePercent (stockId){
+		let data = G_User.stockList[stockId];
+		if(data.priceHistory[data.priceHistory.length - 1]){
+            let percent = data.priceHistory[data.priceHistory.length - 1]/data.nowPrice;
+            percent = parseInt(percent * 1000)/10;
+            percent -= 100;
+            return percent;
+		}else{
+			return 0;
+		}
+
+	},
 
     //----------- game contorl --------------
 	gameInit (){
         G_User.stockList = {};
         this.stockInit();
+        G_User.initUserProperties();
+        G_User.money = G_Con.baseMoney;
+        G_User.yeahpay = G_Con.baseYeahpay;
+
 	},
 
 	stockInit (){
@@ -48,6 +68,7 @@ window.G_Game = {
 	//时间流逝
 	monthPass (monthsNum /* = 1 */){
         monthsNum = monthsNum || 1;
+        G_User.passMonths += monthsNum;
 		this.randomPrice();
 		this.randomEvent();
 		this.checkEnd();

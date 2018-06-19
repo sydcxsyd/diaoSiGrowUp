@@ -57,21 +57,21 @@
         "__id__": 67
       },
       {
-        "__id__": 75
+        "__id__": 76
       },
       {
-        "__id__": 83
+        "__id__": 85
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 86
+        "__id__": 88
       }
     ],
     "_prefab": {
-      "__id__": 87
+      "__id__": 89
     },
     "_id": "",
     "_opacity": 255,
@@ -1348,7 +1348,7 @@
     "_cascadeOpacityEnabled": true,
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0,
       "y": 0.5
     },
     "_contentSize": {
@@ -1362,8 +1362,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -176,
-      "y": 92
+      "x": -231,
+      "y": 81
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1435,7 +1435,7 @@
     "_cascadeOpacityEnabled": true,
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0,
       "y": 0.5
     },
     "_contentSize": {
@@ -1449,8 +1449,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -176,
-      "y": 34
+      "x": -231,
+      "y": 23
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1522,7 +1522,7 @@
     "_cascadeOpacityEnabled": true,
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0,
       "y": 0.5
     },
     "_contentSize": {
@@ -1536,8 +1536,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -176,
-      "y": -23
+      "x": -231,
+      "y": -34
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1609,7 +1609,7 @@
     "_cascadeOpacityEnabled": true,
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0,
       "y": 0.5
     },
     "_contentSize": {
@@ -1623,8 +1623,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -176,
-      "y": 149
+      "x": -231,
+      "y": 138
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -2217,7 +2217,7 @@
       }
     ],
     "_prefab": {
-      "__id__": 74
+      "__id__": 75
     },
     "_id": "",
     "_opacity": 255,
@@ -2413,7 +2413,11 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "clickEvents": [],
+    "clickEvents": [
+      {
+        "__id__": 74
+      }
+    ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$normalColor": {
@@ -2453,6 +2457,15 @@
     }
   },
   {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 1
+    },
+    "component": "StockTradePanel",
+    "handler": "clickAddBtn",
+    "customEventData": ""
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -2472,21 +2485,21 @@
     },
     "_children": [
       {
-        "__id__": 76
+        "__id__": 77
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 80
+        "__id__": 81
       },
       {
-        "__id__": 81
+        "__id__": 82
       }
     ],
     "_prefab": {
-      "__id__": 82
+      "__id__": 84
     },
     "_id": "",
     "_opacity": 255,
@@ -2529,21 +2542,21 @@
     "_name": "Label",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 75
+      "__id__": 76
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 77
+        "__id__": 78
       },
       {
-        "__id__": 78
+        "__id__": 79
       }
     ],
     "_prefab": {
-      "__id__": 79
+      "__id__": 80
     },
     "_id": "",
     "_opacity": 255,
@@ -2586,7 +2599,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 76
+      "__id__": 77
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -2608,7 +2621,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 76
+      "__id__": 77
     },
     "_enabled": true,
     "_color": {
@@ -2636,7 +2649,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 75
+      "__id__": 76
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -2662,7 +2675,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 75
+      "__id__": 76
     },
     "_enabled": true,
     "transition": 2,
@@ -2682,7 +2695,11 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "clickEvents": [],
+    "clickEvents": [
+      {
+        "__id__": 83
+      }
+    ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$normalColor": {
@@ -2718,8 +2735,17 @@
       "__uuid__": "6d86f5ee-69c6-46a7-b3b5-8324a05f1677"
     },
     "_N$target": {
-      "__id__": 75
+      "__id__": 76
     }
+  },
+  {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 1
+    },
+    "component": "StockTradePanel",
+    "handler": "clickReduceBtn",
+    "customEventData": ""
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2744,11 +2770,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 84
+        "__id__": 86
       }
     ],
     "_prefab": {
-      "__id__": 85
+      "__id__": 87
     },
     "_id": "",
     "_opacity": 255,
@@ -2791,7 +2817,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 83
+      "__id__": 85
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -2846,10 +2872,10 @@
       "__id__": 73
     },
     "reduceButton": {
-      "__id__": 81
+      "__id__": 82
     },
     "tradeNumLabel": {
-      "__id__": 84
+      "__id__": 86
     },
     "stockName": {
       "__id__": 37

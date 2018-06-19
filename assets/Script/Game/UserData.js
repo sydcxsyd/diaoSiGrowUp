@@ -1,9 +1,8 @@
 window.G_User = {
     userBaseName : "",
     
-    money : 0,//钱
-
-    yeahpay : 0,//余额宝
+    // money : 0,//钱
+    // yeahpay : 0,//余额宝
 
     tradeCostPer : 0,
     //经过的时间
@@ -26,10 +25,16 @@ window.G_User = {
     },
 
     _addPropertyChangeEvent (propertyName){
-        Object.defineProperty(this, propertyName, {
-            set : function(newValue){
-                G_EventManager.pushEvent(G_Event.PROPERTY_CHANGED + propertyName,[newValue]);
+        Object.defineProperty(this, propertyName,{
+            set : function(newValue) {
+                this["_" + propertyName] = newValue;
+                G_EventManager.pushEvent(G_Event.PROPERTY_CHANGED + propertyName, [newValue]);
             },
-        });
+
+            get : function() {
+                cc.log(arguments);
+                return this["_" + propertyName];
+            },
+        })
     }
 };

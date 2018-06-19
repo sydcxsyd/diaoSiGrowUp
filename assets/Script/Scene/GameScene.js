@@ -26,10 +26,40 @@ cc.Class({
             default : null,
             type : cc.Prefab,
         },
+
+        gameEventList : {
+            default : [],
+            visible : false,
+        },
     },
 
     start () {
         this.init();
+        this.regist(G_Event.onClickTradeStock,this.openTrade);
+        this.regist(G_Event.PROPERTY_CHANGED + "money",this.reloadTable);
+        this.regist(G_Event.PROPERTY_CHANGED + "yeahpay",this.reloadTable);
+    },
+
+    onDestroy (){
+        this.unRegistAll();
+    },
+
+    regist : function(eventName,callBack){
+        G_EventManager.registerListener(eventName,callBack,this);
+        this.gameEventList.push(eventName);
+    },
+
+    unRegistAll (){
+        for(var i in this.gameEventList){
+            let eventName = this.gameEventList[i];
+            G_EventManager.unRegisterListener(eventName,this);
+        }
+    },
+
+    openTrade (stockId){
+        let tradeNode = cc.instantiate(this.stockTradePre);
+        tradeNode.getComponent("StockTradePanel").setStockId(stockId);
+        tradeNode.parent = this.node;
     },
 
     update (dt) {
@@ -47,9 +77,9 @@ cc.Class({
     },
 
     reloadTable (){
-        this.moneyLabel.stirng = G_User.money;
-        this.yeahpayLabel.stirng = G_User.yeahpay;
-        this.yeahpayLabel.stirng = G_Game.getNowTimeStr();
+        this.moneyLabel.string = G_User.money;
+        this.yeahpayLabel.string = G_User.yeahpay;
+        this.timeLabel.string = G_Game.getNowTimeStr();
     },
 
     reloadStock (){
@@ -68,7 +98,7 @@ cc.Class({
         for(let i in G_User.stockList){
             let stockId = G_User.stockList[i].stockId;
             let packageNode = listContent.children[index];
-            packageNode.getComponent("").setStockId(stockId)
+            packageNode.getComponent("StockPanel").setStockId(stockId)
         }
     },
 

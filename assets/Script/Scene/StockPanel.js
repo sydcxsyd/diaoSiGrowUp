@@ -61,10 +61,10 @@ cc.Class({
         let data = G_User.stockList[this.stockId];
         let baseData = G_Stock[this.stockId];
 
-        this.nameLabel = baseData.name;
-        this.valueLabel = data.nowPrice;
-        this.percentLabel = data.priceHistory[data.priceHistory.length - 1];
-        this.gotLabel = data.gotNum + "股";
+        this.nameLabel.string = baseData.name;
+        this.valueLabel.string = "现价：" + data.nowPrice;
+        this.percentLabel.string = G_Game.getStockChangePercent(this.stockId) + "%";
+        this.gotLabel.string = data.gotNum + "股";
     },
 
     onClickTrade (){

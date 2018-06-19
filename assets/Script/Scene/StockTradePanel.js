@@ -86,7 +86,7 @@ cc.Class({
     },
 
     start () {
-
+        this.tradeNumLabel.string = 0;
     },
 
     setStockId (stockId){
@@ -98,7 +98,7 @@ cc.Class({
         let data = G_User.stockList[this.stockId];
         let baseData = G_Stock[this.stockId];
 
-        this.stockName.string = "持有:" + baseData.name + "股";
+        this.stockName.string = baseData.name;
         this.gotLabel.string = "持有:" + data.gotNum + "股";
         this.gotCostLabel.string = "成本:" + data.gotCost + "元";
         this.sellPriceLabel.string = "现价:" + data.nowPrice + "元";
