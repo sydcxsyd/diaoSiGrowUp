@@ -21,7 +21,7 @@ window.G_User = {
 
     initUserProperties (){
         for(var i in this.propertyListenList){
-            this._addPropertyChangeEvent()
+            this._addPropertyChangeEvent(this.propertyListenList[i]);
         }
     },
 

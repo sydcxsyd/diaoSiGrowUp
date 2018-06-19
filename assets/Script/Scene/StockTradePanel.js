@@ -120,11 +120,13 @@ cc.Class({
     },
 
     clickBuyAllBtn (){
-
+        let tradeNum = G_Game.getMaxEnableNum(this.stockId);
+        G_Game.buyStock(this.stockId,tradeNum);
     },
 
     clickSellAllBtn (){
-
+        let tradeNum = G_User.stockList[this.stockId].gotNum;
+        G_Game.sellStock(this.stockId,tradeNum);
     },
 
     clickAddBtn (){
@@ -136,7 +138,9 @@ cc.Class({
     },
 
     clickReduceBtn (){
-        let tradeNum = this.tradeNumLabel.string;
-        G_Game.sellStock(this.stockId,tradeNum);
+        let tradeNum = parseInt(this.tradeNumLabel.string);
+        tradeNum -= 100;
+        tradeNum = Math.max(0,tradeNum);
+        this.tradeNumLabel.string = tradeNum;
     },
 });
