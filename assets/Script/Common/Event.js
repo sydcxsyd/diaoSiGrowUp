@@ -8,4 +8,7 @@ window.G_Event = {
 
     //----------------游戏----------------
     onClickTradeStock : "onClickTradeStock",//点击交易
+
+    //----------------通用----------------
+    PROPERTY_CHANGED : "PROPERTY_CHANGED",//属性变化
 }

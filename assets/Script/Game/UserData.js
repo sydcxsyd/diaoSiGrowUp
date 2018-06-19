@@ -4,6 +4,8 @@ window.G_User = {
     money : 0,//钱
 
     yeahpay : 0,//余额宝
+
+    tradeCostPer : 0,
     //经过的时间
     passMonths : 0,
     //第几代
@@ -14,4 +16,20 @@ window.G_User = {
     },
 
     stockList : null,//股票列表
+
+    propertyListenList : ["money","yeahpay"],
+
+    initUserProperties (){
+        for(var i in this.propertyListenList){
+            this._addPropertyChangeEvent()
+        }
+    },
+
+    _addPropertyChangeEvent (propertyName){
+        Object.defineProperty(this, propertyName, {
+            set : function(newValue){
+                G_EventManager.pushEvent(G_Event.PROPERTY_CHANGED + propertyName,[newValue]);
+            },
+        });
+    }
 };

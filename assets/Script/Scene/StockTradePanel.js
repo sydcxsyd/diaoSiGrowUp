@@ -27,6 +27,32 @@ cc.Class({
             type : cc.Button,
         },
 
+        buyAllBtn : {
+            default : null,
+            type : cc.Button,
+        },
+
+        sellAllBtn : {
+            default : null,
+            type : cc.Button,
+        },
+
+
+        addButton : {
+            default : null,
+            type : cc.Button,
+        },
+
+        reduceButton : {
+            default : null,
+            type : cc.Button,
+        },
+
+        tradeNumLabel : {
+            default : null,
+            type : cc.Label,
+        },
+
         stockName : {
             default : null,
             type : cc.Label,
@@ -84,10 +110,33 @@ cc.Class({
     },
 
     clickBuyBtn (){
-
+        let tradeNum = this.tradeNumLabel.string;
+        G_Game.buyStock(this.stockId,tradeNum);
     },
 
     clickSellBtn (){
+        let tradeNum = this.tradeNumLabel.string;
+        G_Game.sellStock(this.stockId,tradeNum);
+    },
 
+    clickBuyAllBtn (){
+
+    },
+
+    clickSellAllBtn (){
+
+    },
+
+    clickAddBtn (){
+        let tradeNum = parseInt(this.tradeNumLabel.string);
+        tradeNum += 100;
+        if(tradeNum <= G_Game.getMaxEnableNum(this.stockId)){
+            this.tradeNumLabel.string = tradeNum;
+        }
+    },
+
+    clickReduceBtn (){
+        let tradeNum = this.tradeNumLabel.string;
+        G_Game.sellStock(this.stockId,tradeNum);
     },
 });

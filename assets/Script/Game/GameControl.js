@@ -68,22 +68,51 @@ window.G_Game = {
 
 	},
 
+	//获取最大可以购买的数量（为100的整数倍）
+    getMaxEnableNum (stockId){
+        let stockData = G_User.stockList[stockId];
+        let costMoney = stockData.nowPrice * (1 + (G_User.tradeCostPer/100));
+        let num = G_User.money/costMoney;
+        num = parseInt(num/100) * 100;
+        return num;
+	},
+
 	//购买
 	buyStock (stockId,num){
-
+        let stockData = G_User.stockList[stockId];
+        let costMoney = stockData.nowPrice * num;
+        costMoney = costMoney * (1 + (G_User.tradeCostPer/100));
+		if(G_User.money >= costMoney){
+            G_User.money -= costMoney;
+            stockData.gotNum += num;
+		}else{
+            cc.error("buyStock error!!!")
+        }
 	},
 	//出售
 	sellStock (stockId,num){
-
+        let stockData = G_User.stockList[stockId];
+        let gotMoney = stockData.nowPrice * num;
+        G_User.money += gotMoney;
 	},
 
 	//购买余额
-	buyYeahpay (){
-
+	buyYeahpay (num){
+		if(G_User.money >= num){
+            G_User.money -= num;
+            G_User.yeahpay += num;
+		}else{
+			cc.error("buyYeahpay error!!!")
+		}
 	},
     //出售余额
-    sellYeahpay (){
-
+    sellYeahpay (num){
+        if(G_User.yeahpay >= num){
+            G_User.money += num;
+            G_User.yeahpay -= num;
+        }else{
+            cc.error("sellYeahpay error!!!")
+        }
     },
 
 	//去打工
@@ -104,6 +133,7 @@ window.G_Game = {
 	buyCar (carId){
 
 	},
+
 	//娶妻
 	buyWife (wifeId){
 
