@@ -132,9 +132,10 @@ cc.Class({
     clickAddBtn (){
         let tradeNum = parseInt(this.tradeNumLabel.string);
         tradeNum += 100;
-        if(tradeNum <= G_Game.getMaxEnableNum(this.stockId)){
-            this.tradeNumLabel.string = tradeNum;
-        }
+        this.tradeNumLabel.string = tradeNum;
+        // if(tradeNum <= G_Game.getMaxEnableNum(this.stockId)){
+        //
+        // }
     },
 
     clickReduceBtn (){

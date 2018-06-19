@@ -113,8 +113,14 @@ window.G_Game = {
 	//出售
 	sellStock (stockId,num){
         let stockData = G_User.stockList[stockId];
-        let gotMoney = stockData.nowPrice * num;
-        G_User.money += gotMoney;
+        if(stockData.gotNum >= num){
+            stockData.gotNum -= num;
+            let gotMoney = stockData.nowPrice * num;
+            G_User.money += gotMoney;
+		}else{
+            cc.error("sellStock error!!!")
+		}
+
 	},
 
 	//购买余额

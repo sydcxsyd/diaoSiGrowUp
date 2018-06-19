@@ -18,6 +18,8 @@ window.G_User = {
 
     propertyListenList : ["money","yeahpay"],
 
+    _propertyBindDic : {},
+
     initUserProperties (){
         for(var i in this.propertyListenList){
             this._addPropertyChangeEvent(this.propertyListenList[i]);
@@ -28,6 +30,12 @@ window.G_User = {
         Object.defineProperty(this, propertyName,{
             set : function(newValue) {
                 this["_" + propertyName] = newValue;
+                if(this._propertyBindDic[propertyName]){
+                    for(var i in this._propertyBindDic[propertyName]){
+                        this._propertyBindDic[propertyName][i](newValue);
+                    }
+                }
+
                 G_EventManager.pushEvent(G_Event.PROPERTY_CHANGED + propertyName, [newValue]);
             },
 
@@ -36,5 +44,12 @@ window.G_User = {
                 return this["_" + propertyName];
             },
         })
-    }
+    },
+
+    bindData (paraStr,callBackHandle){
+        if(!this._propertyBindDic[paraStr]){
+            this._propertyBindDic[paraStr] = [];
+        }
+        this._propertyBindDic[paraStr].push(callBackHandle);
+    },
 };

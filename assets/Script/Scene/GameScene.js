@@ -36,8 +36,8 @@ cc.Class({
     start () {
         this.init();
         this.regist(G_Event.onClickTradeStock,this.openTrade);
-        this.regist(G_Event.PROPERTY_CHANGED + "money",this.reloadTable);
-        this.regist(G_Event.PROPERTY_CHANGED + "yeahpay",this.reloadTable);
+        // this.regist(G_Event.PROPERTY_CHANGED + "money",this.reloadTable);
+        // this.regist(G_Event.PROPERTY_CHANGED + "yeahpay",this.reloadTable);
     },
 
     onDestroy (){
@@ -67,6 +67,7 @@ cc.Class({
     },
 
     init (){
+        this.nodeBindData();
         this.reloadTable();
         this.reloadStock();
     },
@@ -74,6 +75,12 @@ cc.Class({
     reload (){
         this.reloadTable();
         this.reloadStockData();
+    },
+
+    nodeBindData (){
+        G_User.bindData("money",this.reloadTable.bind(this));
+        G_User.bindData("yeahpay",this.reloadTable.bind(this));
+        G_User.bindData("passMonths",this.reloadTable.bind(this));
     },
 
     reloadTable (){
