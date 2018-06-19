@@ -14,7 +14,8 @@ cc.Class({
     },
 
     onClickStart(){
-    	cc.director.loadScene('GameScene');
+        G_Game.gameInit();
+    	cc.director.loadScene('gameScene');
     },
 
     // called every frame

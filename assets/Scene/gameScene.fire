@@ -1651,9 +1651,7 @@
     "root": {
       "__id__": 44
     },
-    "asset": {
-      "__uuid__": "a53f6df7-d91d-45da-b8b4-e1fa26b0ff45"
-    },
+    "asset": null,
     "fileId": "c2h2Pi3o5MFLmkjLi0NQoB",
     "sync": false
   },
@@ -1752,9 +1750,7 @@
     "root": {
       "__id__": 44
     },
-    "asset": {
-      "__uuid__": "a53f6df7-d91d-45da-b8b4-e1fa26b0ff45"
-    },
+    "asset": null,
     "fileId": "a7o7kVNOxLFpJRg6apfgp/",
     "sync": false
   },
@@ -1902,9 +1898,7 @@
     "root": {
       "__id__": 51
     },
-    "asset": {
-      "__uuid__": "a53f6df7-d91d-45da-b8b4-e1fa26b0ff45"
-    },
+    "asset": null,
     "fileId": "c2h2Pi3o5MFLmkjLi0NQoB",
     "sync": false
   },
@@ -2003,9 +1997,7 @@
     "root": {
       "__id__": 51
     },
-    "asset": {
-      "__uuid__": "a53f6df7-d91d-45da-b8b4-e1fa26b0ff45"
-    },
+    "asset": null,
     "fileId": "a7o7kVNOxLFpJRg6apfgp/",
     "sync": false
   },
@@ -2153,9 +2145,7 @@
     "root": {
       "__id__": 58
     },
-    "asset": {
-      "__uuid__": "a53f6df7-d91d-45da-b8b4-e1fa26b0ff45"
-    },
+    "asset": null,
     "fileId": "c2h2Pi3o5MFLmkjLi0NQoB",
     "sync": false
   },
@@ -2254,9 +2244,7 @@
     "root": {
       "__id__": 58
     },
-    "asset": {
-      "__uuid__": "a53f6df7-d91d-45da-b8b4-e1fa26b0ff45"
-    },
+    "asset": null,
     "fileId": "a7o7kVNOxLFpJRg6apfgp/",
     "sync": false
   },
@@ -2294,10 +2282,10 @@
       "__id__": 7
     },
     "stockPre": {
-      "__uuid__": "3b84a72f-bb99-4d10-a959-8cd1f3c67ea5"
+      "__uuid__": "f7726040-fda8-4f8b-8efc-ba2ce8a831dc"
     },
     "stockTradePre": {
-      "__uuid__": "fa178ca3-a802-4ba4-81e5-689153adccf6"
+      "__uuid__": "6c9b7d3b-c3fd-4e6f-bb27-5c18a911dc5b"
     }
   }
 ]

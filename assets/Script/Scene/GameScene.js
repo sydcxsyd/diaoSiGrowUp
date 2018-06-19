@@ -28,12 +28,8 @@ cc.Class({
         },
     },
 
-    onLoad () {
-        
-    },
-
     start () {
-        G_Game.gameInit();
+        this.init();
     },
 
     update (dt) {
@@ -57,7 +53,7 @@ cc.Class({
     },
 
     reloadStock (){
-        let listContent = cc.find("buyScrollList/view/content");
+        let listContent = cc.find("Canvas/buyScrollList/view/content");
         listContent.removeAllChildren();
         for(let i in G_User.stockList){
             let packageNode = cc.instantiate(this.stockPre);
@@ -67,12 +63,12 @@ cc.Class({
     },
 
     reloadStockData (){
-        let listContent = cc.find("buyScrollList/view/content");
+        let listContent = cc.find("Canvas/buyScrollList/view/content");
         let index = 0;
         for(let i in G_User.stockList){
             let stockId = G_User.stockList[i].stockId;
             let packageNode = listContent.children[index];
-            packageNode.setStockId(stockId)
+            packageNode.getComponent("").setStockId(stockId)
         }
     },
 
