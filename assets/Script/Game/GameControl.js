@@ -22,6 +22,12 @@ window.G_Game = {
         },
 
         gotPrice : 0,
+
+        randomPrice : function(){
+            let stockBaseData = G_Stock[this.stockId];
+            this.nowPrice = G_Func.getNumberInNormalDistribution(stockBaseData.basePrice,stockBaseData.std_dev)
+            this.nowPrice = parseInt(this.nowPrice * 10) / 10;
+        },
 	},
 
 	//-----------game data -----------
@@ -86,9 +92,11 @@ window.G_Game = {
 		this.checkEnd();
 	},
 
-	//随机商品价格
+	//随机价格
 	randomPrice (){
-
+	    for(let i in G_User.stockList){
+            G_User.stockList[i].randomPrice();
+        }
 	},
 
 	//随机事件
