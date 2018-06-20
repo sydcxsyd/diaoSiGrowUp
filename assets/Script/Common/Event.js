@@ -9,6 +9,7 @@ window.G_Event = {
     //----------------游戏----------------
     onClickTradeStock : "onClickTradeStock",//点击交易
 
+    property_stockGotNumChanged : "property_stockGotNumChanged",//获取数量
     //----------------通用----------------
-    PROPERTY_CHANGED : "PROPERTY_CHANGED",//属性变化
-}
+
+};

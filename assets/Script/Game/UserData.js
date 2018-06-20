@@ -1,12 +1,7 @@
 window.G_User = {
     userBaseName : "",
-    
-    // money : 0,//钱
-    // yeahpay : 0,//余额宝
 
     tradeCostPer : 0,
-    //经过的时间
-    passMonths : 0,
     //第几代
     generation : 0,
     //属性
@@ -15,14 +10,18 @@ window.G_User = {
     },
 
     stockList : null,//股票列表
+    //----------------属性----------------
+    proDic : {
+        property_money : "money",//钱
+        property_yeahpay : "yeahpay",//余额宝
+        property_passMonths : "passMonths", //经过的时间
+    },
 
-    propertyListenList : ["money","yeahpay"],
-
+    //----------------属性----------------
     _propertyBindDic : {},
-
     initUserProperties (){
-        for(var i in this.propertyListenList){
-            this._addPropertyChangeEvent(this.propertyListenList[i]);
+        for(var i in this.proDic){
+            this._addPropertyChangeEvent(this.proDic[i]);
         }
     },
 

@@ -11,8 +11,17 @@ window.G_Game = {
 		priceHistory : null,
         type : 0,
 
-		gotNum : 0,
-        gotCost : 0,
+        _gotNum : 0,
+        set gotNum(newValue){
+            this._gotNum = newValue;
+            G_EventManager.pushEvent(G_Event.property_stockGotNumChanged,[newValue])
+        },
+
+        get gotNum(){
+            return this._gotNum;
+        },
+
+        gotPrice : 0,
 	},
 
 	//-----------game data -----------
@@ -50,6 +59,7 @@ window.G_Game = {
         G_User.initUserProperties();
         G_User.money = G_Con.baseMoney;
         G_User.yeahpay = G_Con.baseYeahpay;
+        G_User.passMonths = 0;
 
 	},
 
@@ -59,8 +69,10 @@ window.G_Game = {
             let data = G_Stock[i];
             obj.stockId = data.id;
             obj.nowPrice = data.basePrice;
-            obj.priceHistory = {};
+            obj.priceHistory = [];
             obj.type = this._stockType.normal;
+            obj.gotNum = 0;
+            obj.gotPrice = 0;
             G_User.stockList[obj.stockId] = obj;
 		}
 	},
@@ -102,10 +114,12 @@ window.G_Game = {
 	buyStock (stockId,num){
         let stockData = G_User.stockList[stockId];
         let costMoney = stockData.nowPrice * num;
+        let gotCost = stockData.gotPrice * stockData.gotNum;
         costMoney = costMoney * (1 + (G_User.tradeCostPer/100));
 		if(G_User.money >= costMoney){
             G_User.money -= costMoney;
             stockData.gotNum += num;
+            stockData.gotPrice = (gotCost + costMoney)/stockData.gotNum;
 		}else{
             cc.error("buyStock error!!!")
         }
@@ -117,6 +131,9 @@ window.G_Game = {
             stockData.gotNum -= num;
             let gotMoney = stockData.nowPrice * num;
             G_User.money += gotMoney;
+            if(stockData.gotNum == 0){
+                stockData.gotPrice = 0;
+            }
 		}else{
             cc.error("sellStock error!!!")
 		}

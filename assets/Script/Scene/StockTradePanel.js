@@ -87,7 +87,12 @@ cc.Class({
 
     start () {
         this.tradeNumLabel.string = 0;
+        // G_EventManager.registerListener(G_Event.property_stockGotNumChanged,this.reload,this);
     },
+
+    // onDestroy (){
+    //     G_EventManager.unRegisterListener(G_Event.property_stockGotNumChanged,this);
+    // },
 
     setStockId (stockId){
         this.stockId = stockId;
@@ -100,7 +105,7 @@ cc.Class({
 
         this.stockName.string = baseData.name;
         this.gotLabel.string = "持有:" + data.gotNum + "股";
-        this.gotCostLabel.string = "成本:" + data.gotCost + "元";
+        this.gotCostLabel.string = "成本:" + data.gotPrice + "元";
         this.sellPriceLabel.string = "现价:" + data.nowPrice + "元";
         this.sellGotLabel.string = "市值:" + (data.nowPrice * data.gotNum) + "元";
     },
@@ -112,30 +117,31 @@ cc.Class({
     clickBuyBtn (){
         let tradeNum = this.tradeNumLabel.string;
         G_Game.buyStock(this.stockId,tradeNum);
+        this.reload();
     },
 
     clickSellBtn (){
         let tradeNum = this.tradeNumLabel.string;
         G_Game.sellStock(this.stockId,tradeNum);
+        this.reload();
     },
 
     clickBuyAllBtn (){
         let tradeNum = G_Game.getMaxEnableNum(this.stockId);
         G_Game.buyStock(this.stockId,tradeNum);
+        this.reload();
     },
 
     clickSellAllBtn (){
         let tradeNum = G_User.stockList[this.stockId].gotNum;
         G_Game.sellStock(this.stockId,tradeNum);
+        this.reload();
     },
 
     clickAddBtn (){
         let tradeNum = parseInt(this.tradeNumLabel.string);
         tradeNum += 100;
         this.tradeNumLabel.string = tradeNum;
-        // if(tradeNum <= G_Game.getMaxEnableNum(this.stockId)){
-        //
-        // }
     },
 
     clickReduceBtn (){
